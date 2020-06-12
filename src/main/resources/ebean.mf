@@ -1,0 +1,4 @@
+profile-location: true
+entity-packages: com.ebean.test
+transactional-packages: com.ebean.test
+querybean-packages: com.ebean.test

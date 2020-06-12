@@ -1,0 +1,40 @@
+plugins {
+	id('idea')
+	id 'java'
+	id "io.ebean" version "12.3.3"
+	id 'net.ltgt.apt-idea' version "0.21"
+}
+
+group = 'io.ebean.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	apt
+}
+dependencies {
+	implementation("io.ebean:ebean:12.3.3")
+	implementation("io.ebean:ebean-spring-txn:12.2.1")
+	implementation("io.ebean:ebean-querybean:12.3.3")
+	implementation("io.ebean:querybean-generator:12.3.3")
+	implementation("mysql:mysql-connector-java:8.0.20")
+
+	testImplementation("junit:junit:4.12")
+	testImplementation("io.ebean:ebean-querybean:12.3.3")
+	testImplementation("io.ebean:querybean-generator:12.3.3")
+	testImplementation('io.ebean:ebean-test:12.3.3')
+
+}
+
+ebean {
+	debugLevel = 1
+	queryBeans = true
+}
+
+test {
+	useJUnitPlatform()
+}
